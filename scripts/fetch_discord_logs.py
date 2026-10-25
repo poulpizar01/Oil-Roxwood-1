@@ -141,12 +141,12 @@ def parse_type(t, ch):
     """
     low = t.lower()
     item = (ch.get("itemid") or "").lower()
-    if re.search(r"achat\s*fer|iron", low) or "iron" in item:
-        return "achat_fer"
-    if re.search(r"d[ée]p[ôo]t|deposit|d[ée]pos", low):
+    if re.search(r"d[ée]p[ôo]t|depot|deposit|d[ée]pos", low):
         return "coffre_depot"
     if re.search(r"retrait|withdraw|retir", low):
         return "coffre_retrait"
+    if re.search(r"achat\s*fer|fer\s+a\s+achet[ée]", low):
+        return "achat_fer"
     if re.search(r"vente|vendu|sold|achat", low):
         return "vente"
     if re.search(r"v[ée]hicule|vehicle|spawn", low):

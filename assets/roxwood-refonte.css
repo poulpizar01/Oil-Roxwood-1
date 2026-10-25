@@ -1,0 +1,45 @@
+/* OIL ROXWOOD — Refondre l'interface sans modifier le moteur métier. R-1 */
+:root{--radius:10px}
+body{background:#080f19;color:#edf3f8}
+#app{background:radial-gradient(ellipse at 90% 0%,rgba(215,111,28,.10),transparent 50%),#080f19}
+#topbarApp{height:78px;padding:0 clamp(14px,2.4vw,42px);gap:12px;background:rgba(8,15,25,.96);border-bottom:1px solid rgba(226,154,60,.25);box-shadow:0 8px 32px rgba(0,0,0,.28);backdrop-filter:blur(16px)}
+#topbarApp .brand{gap:12px}
+#topbarApp .brand .logo-wrap{width:46px;height:46px;display:grid;place-items:center}
+#topbarApp .brand #brandLogo{width:42px!important;height:42px!important}
+#topbarApp .brand span:not(.logo-wrap){font-size:21px;letter-spacing:.055em}
+#navTop{gap:3px;margin-left:clamp(8px,2vw,32px);flex-wrap:nowrap}
+#navTop .nav-item{padding:13px clamp(8px,1.05vw,17px);border-radius:7px;color:#b9c5d4;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.055em}
+#navTop .nav-item:hover{background:rgba(236,161,62,.11);color:#fff}
+#navTop .nav-item.active{background:linear-gradient(135deg,rgba(239,154,40,.25),rgba(239,154,40,.08));box-shadow:inset 0 -2px #eaa13b;color:#ffcb78}
+#topbarApp .gk-trigger{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.12);width:205px;max-width:18vw}
+#whoamiBtn{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035)}
+#main{margin-top:78px;padding:0 clamp(16px,2.7vw,48px) 64px;min-height:calc(100vh - 78px)}
+#main .hero-sec{margin:0 calc(-1 * clamp(16px,2.7vw,48px)) 26px;min-height:310px;padding:54px clamp(24px,5vw,86px) 64px;isolation:isolate;border-bottom:1px solid rgba(236,155,55,.34);background-image:linear-gradient(90deg,rgba(5,11,20,.96),rgba(5,11,20,.78) 42%,rgba(5,11,20,.58)),linear-gradient(0deg,#080f19,transparent 55%),url('roxwood-refonte-fond.jpg');background-position:center,center,center 55%;background-size:cover}
+#main .hero-sec.vide{background-image:linear-gradient(90deg,rgba(5,11,20,.96),rgba(5,11,20,.78) 42%,rgba(5,11,20,.58)),linear-gradient(0deg,#080f19,transparent 55%),url('roxwood-refonte-fond.jpg')}
+#main .hero-sec.photo{min-height:310px;margin-bottom:26px;padding-bottom:64px}
+#main .hero-sec::after{content:'OIL ROXWOOD  /  OPERATIONS';position:absolute;top:35px;left:clamp(24px,5vw,86px);font-family:var(--f-mono,monospace);font-size:11px;letter-spacing:.28em;color:#f3ac56;opacity:.88}
+#main .hero-sec .in h2,#main .hero-sec.photo .in h2{font-size:clamp(46px,5.8vw,82px);line-height:.98;letter-spacing:.025em;text-shadow:0 4px 30px #000}
+#main .hero-sec .in .sub{font-size:12px;letter-spacing:.13em;color:#e0e8ee;margin-top:18px}
+#main .miette{margin:0 0 18px;color:#a9b9c8;text-shadow:none}
+#main .miette span:last-child{color:#f7b958}
+#main .pole-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:0 0 32px}
+#main .pole-tab{position:relative;min-height:112px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 19px;border-radius:12px;background:linear-gradient(155deg,rgba(31,45,61,.97),rgba(15,25,39,.98));border:1px solid rgba(176,194,214,.18);box-shadow:0 12px 26px rgba(0,0,0,.22);font-size:13px;font-weight:800;letter-spacing:.025em;color:#d6e1eb;backdrop-filter:none}
+#main .pole-tab::after{content:'↗';position:absolute;right:17px;top:14px;color:#8192a5;font-size:16px}
+#main .pole-tab .pole-tab-ico{font-size:25px;line-height:1}
+#main .pole-tab:hover{transform:translateY(-2px);border-color:#e4a34e;background:#25384c;color:#fff}
+#main .pole-tab.actif{background:linear-gradient(145deg,#3a2b20,#201e22 80%);border-color:#eeaa49;box-shadow:inset 0 3px #f1aa47,0 12px 30px rgba(234,141,36,.15);color:#ffca77}
+#main .pole-tab.actif::after{color:#f4b75f}
+#main .topbar{margin:14px 0 24px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.09)}
+#main .topbar h2{font-size:clamp(32px,3.4vw,46px);color:#f6f8fc}
+#main .panel{background:linear-gradient(145deg,#162334,#101a28);border:1px solid rgba(177,196,214,.16);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.16)}
+#main .panel h3{color:#f1c07c}
+#main .tabs{gap:8px;flex-wrap:wrap}
+#main .tab{border-radius:8px 8px 0 0}
+#main .fact-wrap{grid-template-columns:minmax(0,1fr) minmax(250px,300px);gap:18px}
+#main .field,#main input,#main select,#main textarea{border-radius:7px}
+#main .btn{border-radius:7px}
+#main .pole-carte{min-height:175px}
+@media(max-width:1400px){#topbarApp .gk-trigger{width:44px;padding:10px;justify-content:center}#topbarApp .gk-trigger span,#topbarApp .gk-trigger kbd{display:none}#navTop{margin-left:8px}#navTop .nav-item{padding:10px 8px;font-size:11px}}
+@media(max-width:1050px){#topbarApp{height:auto;min-height:78px;flex-wrap:wrap;padding:12px 16px}#navTop{order:5;width:100%;margin-left:0;overflow-x:auto;padding-bottom:5px}#main{margin-top:125px}.gk-trigger{margin-left:auto}#main .fact-wrap{grid-template-columns:1fr}}
+@media(max-width:760px){#topbarApp{position:static}#main{margin-top:0;padding:0 16px 36px}#main .hero-sec,#main .hero-sec.photo{margin:0 -16px 20px;min-height:225px;padding:60px 24px 34px}#main .hero-sec::after{left:24px;top:22px;font-size:9px}#main .hero-sec .in h2,#main .hero-sec.photo .in h2{font-size:45px}#main .pole-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#main .pole-tab{min-height:100px;padding:13px;font-size:12px}#main .topbar{padding-top:6px}#main .panel{overflow-x:auto}}
+@media(max-width:430px){#main .pole-tabs{grid-template-columns:1fr 1fr}#main .pole-tab{min-height:92px}#topbarApp .brand span:not(.logo-wrap){font-size:17px}}

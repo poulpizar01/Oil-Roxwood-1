@@ -32,14 +32,12 @@ window.ROXWOOD_CFG = {
 <script src="assets/roxwood-github.js?v=C-119"></script>
 <link rel="stylesheet" href="assets/roxwood-core.css?v=C-119">
 <link rel="stylesheet" href="assets/roxwood-app.css?v=C-119">
+<link rel="stylesheet" href="assets/roxwood-refonte.css?v=R-1">
 </head>
 <body>
-<div id="noelNeige" aria-hidden="true"></div>
-<div id="noelGuirlande" aria-hidden="true"></div>
 
 <!-- ============ LOGIN ============ -->
 <div id="login">
-  <canvas id="skylineLogin" aria-hidden="true"></canvas>
   <div class="login-card">
     <i class="rivet a"></i><i class="rivet b"></i><i class="rivet c"></i><i class="rivet d"></i>
     <span class="enseigne" aria-hidden="true">ACCÈS</span>
@@ -88,49 +86,22 @@ window.ROXWOOD_CFG = {
 
 <!-- ============ APP ============ -->
 <div id="app">
-  <aside>
-    <!-- Le logo EST le lien vers la vitrine (C-60) : il avait déjà le curseur main
-         et l'animation au survol, l'entrée de menu « Voir le site public » ne
-         faisait que répéter une affordance existante. Le voyant de synchro reste
-         cliquable à l'intérieur : son gestionnaire arrête la navigation. -->
-    <div class="brand"><a href="index.html" target="_blank" rel="noopener" title="Ouvrir le site public dans un nouvel onglet" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;min-width:0"><span class="logo-wrap"><img id="brandLogo" src="assets/logo.png" alt="" width="32" height="32" style="object-fit:contain"></span> <span>OIL <b>ROXWOOD</b><small>ESPACE MEMBRE <span id="syncDot" title="État de la synchro — cliquer pour régler le jeton" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--muted);margin-left:5px;vertical-align:middle;cursor:pointer"></span></small></span></a></div>
-    <div class="nav-sec" data-sec="rh" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('rh')" onkeydown="navSecKey(event,'rh')">Ressources humaines <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="frh">🗂️ <span class="txt">Fiches RH</span></button>
-    <button class="nav-item" data-view="effectif">👥 <span class="txt">Effectif</span></button>
-    <button class="nav-item" data-view="integration">🎓 <span class="txt">Intégration</span></button>
-    <div class="nav-sec" data-sec="commerce" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('commerce')" onkeydown="navSecKey(event,'commerce')">Commerce <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="factures">🧾 <span class="txt">Factures</span></button>
-    <button class="nav-item" data-view="relances">📞 <span class="txt">Relances</span></button>
-    <button class="nav-item" data-view="fventes">🛒 <span class="txt">Ventes de la semaine</span></button>
-    <button class="nav-item" data-view="quotascom">⚖️ <span class="txt">Quotas &amp; fer</span></button>
-    <button class="nav-item" data-view="prodder">🗡️ <span class="txt">Produits dérivés</span></button>
-    <div class="nav-sec" data-sec="compta" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('compta')" onkeydown="navSecKey(event,'compta')">Compta <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="ftablette">🖥️ <span class="txt">Tablette</span></button>
-    <button class="nav-item" data-view="fcompta">💸 <span class="txt">Dépenses &amp; retraits</span></button>
-    <button class="nav-item" data-view="frecues">📥 <span class="txt">Factures reçues</span></button>
-    <button class="nav-item" data-view="bilan">🏦 <span class="txt">Bilan compta</span></button>
-    <button class="nav-item" data-view="cloture">🗓️ <span class="txt">Clôture du lundi</span></button>
-    <button class="nav-item" data-view="semaine">💰 <span class="txt">Semaine &amp; Primes</span></button>
-    <div class="nav-sec" data-sec="terrain" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('terrain')" onkeydown="navSecKey(event,'terrain')">Responsable Runner <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="felig">✅ <span class="txt">Éligibilité</span></button>
-    <button class="nav-item" data-view="historique">📈 <span class="txt">Historique</span></button>
-    <div class="nav-sec" data-sec="quotas" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('quotas')" onkeydown="navSecKey(event,'quotas')">Quotas <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="quotashist">📊 <span class="txt">Quotas 3 semaines</span></button>
-    <div class="nav-sec" data-sec="vitrine" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('vitrine')" onkeydown="navSecKey(event,'vitrine')">Vitrine <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="produits">🛢️ <span class="txt">Nouveaux produits</span></button>
-    <div class="nav-sec" data-sec="perso" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('perso')" onkeydown="navSecKey(event,'perso')">Perso <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="agenda">📅 <span class="txt">Mon agenda</span></button>
-    <button class="nav-item" data-view="affiches">🖼️ <span class="txt">Affiches</span></button>
-    <div class="nav-sec" data-sec="systeme" tabindex="0" role="button" aria-expanded="true" onclick="navToggle('systeme')" onkeydown="navSecKey(event,'systeme')">Système <span class="chev">▾</span></div>
-    <button class="nav-item" data-view="dlogs">📡 <span class="txt">Logs en direct</span></button>
-    <button class="nav-item" data-view="journal">📜 <span class="txt">Journal</span></button>
-    <button class="nav-item" data-view="params">⚙️ <span class="txt">Paramètres</span></button>
-    <button class="nav-item" data-view="maj">🆕 <span class="txt">Mises à jour</span></button>
-    <div class="spacer"></div>
-    <button class="nav-item" onclick="localStorage.setItem('orx_lang',localStorage.getItem('orx_lang')==='en'?'fr':'en');applyLang()" title="Changer la langue de l'interface / Switch interface language">🌐 <span class="txt" data-nolang="1">FR / EN</span></button>
-    <button class="nav-item" id="logout" onclick="logout()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.5a8 8 0 1 0 11.4 0"/></svg> <span class="txt">Déconnexion</span></button>
-  </aside>
   <header id="topbarApp">
+    <!-- Le logo EST le lien vers la vitrine (C-60). -->
+    <a class="brand" href="index.html" target="_blank" rel="noopener" title="Ouvrir le site public dans un nouvel onglet">
+      <span class="logo-wrap"><img id="brandLogo" src="assets/logo.png" alt="" width="30" height="30" style="object-fit:contain"></span>
+      <span>OIL <b>ROXWOOD</b></span>
+      <span id="syncDot" title="État de la synchro — cliquer pour régler le jeton" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-left:4px;cursor:pointer"></span>
+    </a>
+    <nav id="navTop">
+      <button class="nav-item" data-view="accueil"><span class="txt">Accueil</span></button>
+      <button class="nav-item" data-view="rh"><span class="txt">Ressources humaines</span></button>
+      <button class="nav-item" data-view="commercial"><span class="txt">Commercial</span></button>
+      <button class="nav-item" data-view="comptable"><span class="txt">Comptabilité</span></button>
+      <button class="nav-item" data-view="overview"><span class="txt">Général</span></button>
+      <button class="nav-item" data-view="params"><span class="txt">Paramètres</span></button>
+    </nav>
+    <div style="flex:1"></div>
     <button class="gk-trigger" onclick="gkOpen()" title="Recherche globale">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <span>Rechercher…</span>
@@ -139,6 +110,8 @@ window.ROXWOOD_CFG = {
     <button id="whoamiBtn" onclick="show('profil')" title="Mon profil">
       <div id="whoami" style="padding:8px 14px;font-size:.78rem;color:var(--muted)"></div>
     </button>
+    <button class="icon-btn" onclick="localStorage.setItem('orx_lang',localStorage.getItem('orx_lang')==='en'?'fr':'en');applyLang()" title="Changer la langue de l'interface / Switch interface language">🌐</button>
+    <button class="icon-btn" id="logout" onclick="logout()" title="Déconnexion"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.5a8 8 0 1 0 11.4 0"/></svg></button>
   </header>
   <main id="main"></main>
 </div>
@@ -1255,12 +1228,6 @@ function enter(){
   chgOuvrir();
   whoami();
   applyPerms(); navBadges();
-  aplTheme();
-  const THEME_TOASTS={halloween:"🎃 Joyeux Halloween, l'équipe Oil Roxwood !",noel:"🎄 Joyeux Noël, l'équipe Oil Roxwood !"};
-  if(THEME_TOASTS[S.settings.theme]&&sessionStorage.getItem('orx_theme_toast')!==S.settings.theme){
-    sessionStorage.setItem('orx_theme_toast',S.settings.theme);
-    setTimeout(()=>toast(THEME_TOASTS[S.settings.theme],6000),1200);
-  }
   przLoad().then(()=>{ if(VIEW==='effectif') rerender(); }); setInterval(przLoad,5*60*1000); // présence Discord (widget) rafraîchie
   alignerRolesBot(); setInterval(alignerRolesBot,5*60*1000);  // rôles Discord relevés par le bot (C-97)
   hbSend(); hbLoad(); setInterval(()=>{ hbSend(); hbLoad(); },90*1000); // présence sur le SITE (battement de cœur)
@@ -1300,7 +1267,7 @@ function logout(){
 }
 
 /* ---- Canari de version : prévient les onglets restés sur une vieille version ---- */
-const APP_VERSION='C-127';
+const APP_VERSION='C-128';
 /* Le bandeau ne doit dire qu'une chose : « une version plus récente existe ».
    Il comparait deux chaînes avec !==, donc il s'allumait aussi dans l'autre
    sens — quand la page ouverte était PLUS récente que version.json, ce qui
@@ -1708,29 +1675,6 @@ document.querySelectorAll('.nav-item[data-view]').forEach(b=>b.onclick=()=>show(
     b.insertAdjacentHTML('afterbegin',`<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`);
   });
 })();
-/* ---- habillage saisonnier (un seul à la fois — Paramètres) ----
-   S.settings.theme : '' (aucun) | 'halloween' | 'noel'. Un seul sélecteur,
-   jamais deux cases indépendantes : les deux classes CSS s'excluent (pas de
-   fond Halloween ET Noël superposés si on oublie d'en décocher un).
-   Seul Halloween change le logo (image fournie) ; Noël reste sur le logo
-   normal et ne joue que sur les couleurs/décorations. Les icônes de nav ne
-   sont pas touchées — la plupart sont déjà remplacées par des pictos en
-   traits fins juste au-dessus, et y superposer un emoji aurait doublé
-   l'icône plutôt que de la remplacer. */
-const THEMES_SAISON=['halloween','noel'];
-function aplTheme(){
-  // migration unique : l'ancien réglage était une case à cocher (S.settings.halloween,
-  // booléen) ; le nouveau est ce sélecteur à choix unique. Reprend la valeur en place
-  // une fois, pour ne pas éteindre l'habillage de qui l'avait déjà activé.
-  if(S.settings&&S.settings.halloween&&!S.settings.theme){
-    S.settings.theme='halloween'; delete S.settings.halloween; save();
-  }
-  const theme=(S.settings&&S.settings.theme)||'';
-  THEMES_SAISON.forEach(t=>document.documentElement.classList.toggle(t,t===theme));
-  const logo=theme==='halloween'?'assets/logo-halloween.png':'assets/logo.png';
-  const lg=document.getElementById('loginLogo'); if(lg) lg.src=logo;
-  const bl=document.getElementById('brandLogo'); if(bl) bl.src=logo;
-}
 /* ---- langue de l'interface (v1 : navigation & sections) ---- */
 const I18N_EN={"Vue d'ensemble":'Overview','Semaine & Primes':'Week & Bonuses','Historique':'History','Clôture du lundi':'Monday closing','Effectif':'Workforce','Runs':'Runs','Feuilles':'Sheets','Tablette':'Tablet','Éligibilité':'Eligibility','Ventes de la semaine':'Weekly sales','Fiches RH':'HR records','Intégration':'Onboarding','Dépenses & retraits':'Expenses & withdrawals','Ancienneté RH':'HR seniority',"Demandes d'accès":'Access requests','Factures':'Invoices','Relances':'Follow-ups','Bilan compta':'Accounting','Produits dérivés':'Merchandise','Quotas commerciaux':'Sales quotas','Achats Fer':'Iron purchases','Factures reçues':'Received invoices','Ma semaine':'My week','Quotas 3 semaines':'Quotas (3 weeks)','Ma to-do':'My to-do','Mon agenda':'My agenda','Suggestions / Bugs':'Suggestions / Bugs','Mises à jour':'Updates','Logs Discord':'Discord logs','Logs en direct':'Live logs','Journal':'Activity log','Paramètres':'Settings','TV du dépôt':'Depot TV','Retour au site':'Back to site','Déconnexion':'Log out','Pilotage':'Steering','Gestion':'Management','Commerce':'Sales','Compta':'Accounting','Quotas':'Quotas','Ressources humaines':'Human resources','Responsable Runner':'Runner manager','Affiches':'Posters','Mon profil':'My profile','Quotas & fer':'Quotas & iron','Perso':'Personal','Système':'System','Accès rapides':'Quick access'};
 function applyLang(){
@@ -1795,7 +1739,11 @@ function show(v){
   const memeVue=(v===VIEW);
   const repere=memeVue?repereEcran():null;
   VIEW=v;
-  document.querySelectorAll('.nav-item[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  document.querySelectorAll('.nav-item[data-view]').forEach(b=>{
+    const bv=b.dataset.view;
+    const dansLeHub=HUB_INFO[bv]&&HUB_INFO[bv].items.some(it=>it.view===v);
+    b.classList.toggle('active',bv===v||!!dansLeHub);
+  });
   destroyCharts();
   ({accueil,rh,commercial,comptable,overview,effectif,semaine,historique,cloture,ftablette,felig,fventes,frh,integration,fcompta,factures,relances,bilan,prodder,quotascom,frecues,moi,profil,quotashist,agenda,affiches,produits,maj,dlogs,journal,params})[v]();
   try{ applyRO(); }catch(e){}
@@ -1830,8 +1778,8 @@ document.addEventListener('focusout',()=>{ setTimeout(()=>{ if(RERENDER_WAIT&&!e
    habituel du dashboard — rien ne casse tant que personne n'en a réglé une. */
 function heroHTML(sec,titre,sousTitre){
   const url=(S.settings.fonds&&S.settings.fonds[sec])||'';
-  const bg=url?`background-image:linear-gradient(180deg, rgba(10,8,6,.25) 0%, rgba(10,8,6,.7) 78%, var(--panel) 100%), url('${esc(url)}');background-size:cover;background-position:center`:'';
-  return `<div class="hero-sec${url?'':' vide'}" style="${bg}">
+  const bg=url?`background-image:linear-gradient(180deg, rgba(8,6,5,.35) 0%, rgba(8,6,5,.3) 45%, rgba(8,6,5,.75) 80%, var(--panel) 100%), url('${esc(url)}');background-size:cover;background-position:center`:'';
+  return `<div class="hero-sec${url?' photo':' vide'}" style="${bg}">
     <div class="in"><h2>${esc(titre)}</h2>${sousTitre?`<div class="sub">${esc(sousTitre)}</div>`:''}</div>
   </div>`;
 }
@@ -1849,6 +1797,50 @@ function cartesHTML(CARTES){
     </div>`; }).join('')}
   </div>`;
 }
+/* Même répertoire que les cartes des hubs (rh/commercial/comptable), utilisé
+   pour construire le fil d'ariane et les onglets permanents sur CHAQUE page
+   d'un pôle — pas seulement sur sa page d'accueil. */
+const HUB_INFO={
+  rh:{label:'Ressources Humaines',couleur:COULEURS_POLES.rh,items:[
+    {view:'frh',emoji:'🗂️',titre:'Dossier'},
+    {view:'effectif',emoji:'👥',titre:'Effectif'},
+    {view:'integration',emoji:'🎓',titre:'Intégration'},
+    {view:'felig',emoji:'✅',titre:'Éligibilité'},
+    {view:'historique',emoji:'📈',titre:'Historique'},
+    {view:'quotashist',emoji:'📊',titre:'Quotas 3 semaines'},
+  ]},
+  commercial:{label:'Commercial',couleur:COULEURS_POLES.commercial,items:[
+    {view:'factures',emoji:'🧾',titre:'Factures'},
+    {view:'relances',emoji:'📞',titre:'Relances'},
+    {view:'fventes',emoji:'🛒',titre:'Ventes de la semaine'},
+    {view:'quotascom',emoji:'⚖️',titre:'Quotas & fer'},
+    {view:'prodder',emoji:'🗡️',titre:'Produits dérivés'},
+    {view:'produits',emoji:'🛢️',titre:'Nouveaux produits'},
+  ]},
+  comptable:{label:'Comptabilité',couleur:COULEURS_POLES.comptable,items:[
+    {view:'ftablette',emoji:'🖥️',titre:'Tablette'},
+    {view:'fcompta',emoji:'💸',titre:'Dépenses & retraits'},
+    {view:'frecues',emoji:'📥',titre:'Factures reçues'},
+    {view:'bilan',emoji:'🏦',titre:'Bilan compta'},
+    {view:'cloture',emoji:'🗓️',titre:'Clôture du lundi'},
+    {view:'semaine',emoji:'💰',titre:'Semaine & Primes'},
+  ]},
+};
+function subnavHTML(hub,activeView,activeLabel){
+  const h=HUB_INFO[hub]; if(!h) return '';
+  const al=allowedViews();
+  const items=h.items.filter(it=>al.includes(it.view));
+  return `<div class="miette">
+    <button onclick="show('accueil')">🏠 Accueil</button><span>›</span>
+    <button onclick="show('${hub}')">${esc(h.label)}</button><span>›</span>
+    <span>${esc(activeLabel)}</span>
+  </div>
+  <div class="pole-tabs" style="--pc:${h.couleur}">
+    ${items.map(it=>`<button class="pole-tab${it.view===activeView?' actif':''}" onclick="show('${it.view}')">
+      <span class="pole-tab-ico">${it.emoji}</span><span>${esc(it.titre)}</span>
+    </button>`).join('')}
+  </div>`;
+}
 function accueil(){
   const al=allowedViews();
   const CARTES=[
@@ -1863,36 +1855,22 @@ function accueil(){
 }
 function rh(){
   const al=allowedViews(), col=COULEURS_POLES.rh;
-  const CARTES=[
-    {emoji:'🗂️',titre:'Fiches RH',sub:'Consulter et gérer les fiches du personnel',view:'frh',couleur:col},
-    {emoji:'👥',titre:'Effectif',sub:'Suivre les effectifs et les mouvements',view:'effectif',couleur:col},
-    {emoji:'🎓',titre:'Intégration',sub:"Gérer l'intégration des nouveaux collaborateurs",view:'integration',couleur:col},
-  ].filter(c=>al.includes(c.view));
+  const SOUS={frh:'Consulter et gérer les fiches du personnel',effectif:'Suivre les effectifs et les mouvements',integration:"Gérer l'intégration des nouveaux collaborateurs",felig:'Qui peut monter de grade cette semaine',historique:'Les semaines passées, en un coup d\'œil',quotashist:'Quotas des 3 dernières semaines'};
+  const CARTES=HUB_INFO.rh.items.map(it=>({...it,sub:SOUS[it.view],couleur:col})).filter(c=>al.includes(c.view));
   $('#main').innerHTML = heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')
     + cartesHTML(CARTES);
 }
 function commercial(){
   const al=allowedViews(), col=COULEURS_POLES.commercial;
-  const CARTES=[
-    {emoji:'🧾',titre:'Factures',sub:'Gérer et consulter les factures clients',view:'factures',couleur:col},
-    {emoji:'📞',titre:'Relances',sub:'Suivre les relances clients et impayés',view:'relances',couleur:col},
-    {emoji:'🛒',titre:'Ventes de la semaine',sub:'Suivi des ventes et des performances',view:'fventes',couleur:col},
-    {emoji:'⚖️',titre:'Quotas & fer',sub:'Suivre les quotas et le fer racheté',view:'quotascom',couleur:col},
-    {emoji:'🗡️',titre:'Produits dérivés',sub:'Gérer les produits dérivés',view:'prodder',couleur:col},
-  ].filter(c=>al.includes(c.view));
+  const SOUS={factures:'Gérer et consulter les factures clients',relances:'Suivre les relances clients et impayés',fventes:'Suivi des ventes et des performances',quotascom:'Suivre les quotas et le fer racheté',prodder:'Gérer les produits dérivés',produits:'Catalogue publié sur la vitrine'};
+  const CARTES=HUB_INFO.commercial.items.map(it=>({...it,sub:SOUS[it.view],couleur:col})).filter(c=>al.includes(c.view));
   $('#main').innerHTML = heroHTML('commercial','Commercial','Développer nos partenariats')
     + cartesHTML(CARTES);
 }
 function comptable(){
   const al=allowedViews(), col=COULEURS_POLES.comptable;
-  const CARTES=[
-    {emoji:'🖥️',titre:'Tablette',sub:'Relevé de la tablette de production',view:'ftablette',couleur:col},
-    {emoji:'💸',titre:'Dépenses & retraits',sub:"Suivi des dépenses de l'entreprise",view:'fcompta',couleur:col},
-    {emoji:'📥',titre:'Factures reçues',sub:'Factures fournisseurs reçues',view:'frecues',couleur:col},
-    {emoji:'🏦',titre:'Bilan compta',sub:"Bilan complet de l'entreprise",view:'bilan',couleur:col},
-    {emoji:'🗓️',titre:'Clôture du lundi',sub:'Clôturer la semaine de travail',view:'cloture',couleur:col},
-    {emoji:'💰',titre:'Semaine & Primes',sub:'Salaires et primes de la semaine',view:'semaine',couleur:col},
-  ].filter(c=>al.includes(c.view));
+  const SOUS={ftablette:'Relevé de la tablette de production',fcompta:"Suivi des dépenses de l'entreprise",frecues:'Factures fournisseurs reçues',bilan:"Bilan complet de l'entreprise",cloture:'Clôturer la semaine de travail',semaine:'Salaires et primes de la semaine'};
+  const CARTES=HUB_INFO.comptable.items.map(it=>({...it,sub:SOUS[it.view],couleur:col})).filter(c=>al.includes(c.view));
   $('#main').innerHTML = heroHTML('comptable','Comptabilité','Suivi financier et reporting')
     + cartesHTML(CARTES);
 }
@@ -1996,6 +1974,8 @@ function effectif(){
   }
   if(search) R=R.filter(r=>(r.nom+' '+r.discord).toLowerCase().includes(search.toLowerCase()));
   $('#main').innerHTML = `
+  ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+  ${subnavHTML('rh','effectif','Effectif')}
   <div class="topbar">
     <div><h2>Effectif</h2><div class="sub">${S.runners.length} runner(s)${GH.length?` + ${GH.length} sans prise de service (feuille RH)`:''}${isMembre()?' · consultation':` · ${S.runners.filter(eligible).length} montée(s) de grade en attente · synchronisé avec la feuille Tablette`}</div></div>
     ${isMembre()?'':`<div style="display:flex;gap:10px">
@@ -2745,6 +2725,8 @@ async function semaine(){
   const R=items.map(x=>x.r);
   const totalPrimes = (PRIMES_OFF ? 0 : R.reduce((a,r)=>a+primeProj(r),0) + S.settings.top.slice(0,Math.min(3,R.length)).reduce((a,b)=>a+b,0)) + (S.primesExtra||[]).reduce((a,p)=>a+nn(p.montant),0);
   $('#main').innerHTML = `
+  ${heroHTML('comptable','Comptabilité','Suivi financier et reporting')}
+  ${subnavHTML('comptable','semaine','Semaine & Primes')}
   <div class="topbar">
     <div><h2>Semaine ${S.settings.semaine} — Primes</h2><div class="sub">${weekRange()} · prime = barils × multiplicateur
       <span style="cursor:help;color:var(--accent)" title="Plafonds primes : ${fmt(caps().empPrime)} $ employés · ${fmt(caps().patPrime)} $ direction${(()=>{const n=commerciauxActifs().length,b=bidonsVendusSem();return n?`\nCommerciaux : ${fmt(b)} bidons ÷ ${n} actif(s) = ${fmt(Math.round(b/n))} × ${S.settings.prixBidonCom??45} $ = ${money(Math.round(b/n)*(S.settings.prixBidonCom??45))} chacun`:''})()}">ℹ️ détails</span></div></div>
@@ -2911,7 +2893,6 @@ function statsData(){
     objectif:S.settings.objectif||0,
     effectif:effectifPublie(),
     clientsServis:(S.fact&&S.fact.factures.length)||0,
-    theme:String((S.settings&&S.settings.theme)||''),
     top3:sorted.slice(0,3).filter(r=>r.barils>0).map(r=>({nom:r.nom,barils:r.barils})),
     /* Ce fichier est lisible par n'importe qui sur GitHub Pages, et rien ne lisait
        le détail par personne — ni la vitrine, ni les robots. Il contenait pourtant
@@ -3134,6 +3115,8 @@ function frh(){ return ouvrirFeuille('rh'); }
    embarqué ici : plus de lien externe à distribuer, la page vit sur le site. */
 function integration(){
   $('#main').innerHTML=`
+  ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+  ${subnavHTML('rh','integration','Intégration')}
   <div class="topbar">
     <div><h2>🎓 Intégration</h2><div class="sub">Guide d'intégration remis aux nouvelles recrues</div></div>
     <div style="display:flex;gap:10px;align-items:center">
@@ -3141,7 +3124,7 @@ function integration(){
     </div>
   </div>
   <div class="panel" style="padding:0;overflow:hidden">
-    <iframe src="integration.html" title="Guide d'intégration Oil Roxwood" style="display:block;width:100%;height:calc(100vh - 190px);min-height:520px;border:0"></iframe>
+    <iframe src="integration.html" title="Guide d'intégration Oil Roxwood" style="display:block;width:100%;height:calc(100vh - 480px);min-height:460px;border:0"></iframe>
   </div>`;
 }
 function fcompta(){ return ouvrirFeuille('compta'); }
@@ -3264,7 +3247,12 @@ async function feuilles(){
   }
   const def=SHEETS_DEF[curSheet], rows=S.sheets[curSheet];
   const {cols,idx,dragOk,head,body,foot}=corpsFeuille();
+  const SHEET_HUB={rh:'rh',tablette:'comptable',compta:'comptable',ventesSem:'commercial',eligibilite:'rh'};
+  const SHEET_VUE={rh:'frh',tablette:'ftablette',compta:'fcompta',ventesSem:'fventes',eligibilite:'felig'};
+  const hub=SHEET_HUB[curSheet];
   $('#main').innerHTML=`
+  ${hub?heroHTML(hub,HUB_INFO[hub].label,''):''}
+  ${hub?subnavHTML(hub,SHEET_VUE[curSheet],def.label):''}
   <div class="topbar">
     <div><h2>${def.ico} ${def.label}</h2><div class="sub">${rows.length} ligne(s) · modifiable directement, sauvegardé automatiquement</div></div>
     <div style="display:flex;gap:10px">
@@ -3775,6 +3763,8 @@ async function factures(){
   if(!FD) newDraft();
   const tabs=[['new','🧾 Nouvelle facture'],['hist','🗃️ Historique ('+S.fact.factures.length+')'],['clients','🏢 Base clients ('+S.fact.clients.length+')'],['articles','📦 Articles ('+S.fact.articles.length+')']];
   $('#main').innerHTML=`
+  ${heroHTML('commercial','Commercial','Développer nos partenariats')}
+  ${subnavHTML('commercial','factures','Factures')}
   <div class="topbar"><div><h2>Facturation</h2><div class="sub">${SOCIETE.nom} · Téléphone ${SOCIETE.tel} · RIB ${SOCIETE.rib}</div></div>
     <button class="btn btn-ghost" onclick="venteRapide()">⚡ Vente rapide (sans facture)</button></div>
   <div class="tabs">${tabs.map(([k,l])=>`<button class="tab ${factTab===k?'on':''}" onclick="factTab='${k}';factures()">${l}</button>`).join('')}</div>
@@ -4330,6 +4320,8 @@ async function relances(){
   const dot=x=> (x.a!==null&&x.a>=90)?'🔴':(x.c.relance?'🟢':'🟠');
   const enCours=all.filter(x=>x.c.relance).length;
   $('#main').innerHTML=`
+  ${heroHTML('commercial','Commercial','Développer nos partenariats')}
+  ${subnavHTML('commercial','relances','Relances')}
   <div class="topbar">
     <div><h2>Relances commerciales</h2><div class="sub">${rows.length} client(s) à relancer · ${jamais.length} jamais commandé · ${enCours} relance(s) en cours · mise à jour automatique à chaque facture</div></div>
     <div class="tabs" style="margin:0">
@@ -4675,6 +4667,8 @@ async function bilan(){
   const B=bilanData();
   const actifs=B.lignes.filter(l=>!l.manuel).sort((a,b)=>bilanOrdGrade(a.rang)-bilanOrdGrade(b.rang)||b.ca-a.ca||a.nom.localeCompare(b.nom));
   $('#main').innerHTML=`
+  ${heroHTML('comptable','Comptabilité','Suivi financier et reporting')}
+  ${subnavHTML('comptable','bilan','Bilan compta')}
   <div class="topbar">
     <div><h2>Bilan comptable</h2><div class="sub">Calculé en direct depuis les feuilles Tablette, Budget & salaires et Compta</div></div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
@@ -4818,6 +4812,8 @@ async function cloture(){
      btn:'📈 Voir les statistiques',act:"show('historique')"},
   ];
   $('#main').innerHTML=`
+  ${heroHTML('comptable','Comptabilité','Suivi financier et reporting')}
+  ${subnavHTML('comptable','cloture','Clôture du lundi')}
   <div class="topbar"><div><h2>Clôture du lundi</h2><div class="sub">${weekRange()} · suis les étapes dans l'ordre — coche au fur et à mesure</div></div>
     <button class="btn btn-ghost" onclick="clSet(0)">↺ Recommencer</button></div>
   <div class="panel" style="max-width:720px">
@@ -4972,6 +4968,10 @@ function ferDel(id){
 
 /* ================== MISES À JOUR (changelog) ================== */
 const CHANGELOG=[
+ {v:'C-128',d:'26/10/2026',t:'Habillage saisonnier et fond animé retirés',items:[
+   ['🗑️','Thème Halloween/Noël retiré','L\'habillage saisonnier (couleurs, neige, guirlande, bonnet sur le logo) a été complètement retiré du dashboard et de la vitrine, ainsi que son sélecteur dans Paramètres.'],
+   ['🗑️','Fond animé retiré','Les particules reliées en fond et le halo qui suivait la souris ont été retirés du dashboard.'],
+ ]},
  {v:'C-127',d:'26/10/2026',t:'Accueil : une couleur par pôle, badge et flèche sur chaque carte',items:[
    ['🎨','Chaque pôle a sa couleur','RH ambré, Commercial bleu, Comptable vert, Général rouge, Paramètres violet — reprise sur le badge de l\'icône, le filet du haut et la flèche de la carte, pour reconnaître un pôle d\'un coup d\'œil.'],
    ['➜','Flèche sur chaque carte','Un bouton rond en bas de carte, coloré comme le pôle, qui se remplit au survol.'],
@@ -5611,7 +5611,10 @@ function historique(){
   }
   const W=S.weeks||[];
   if(!W.length){
-    $('#main').innerHTML=`<div class="topbar"><div><h2>Historique</h2><div class="sub">Évolution semaine par semaine</div></div></div>
+    $('#main').innerHTML=`
+    ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+    ${subnavHTML('rh','historique','Historique')}
+    <div class="topbar"><div><h2>Historique</h2><div class="sub">Évolution semaine par semaine</div></div></div>
     <div class="panel"><div class="empty">Aucune semaine clôturée pour le moment — l'historique se remplira à chaque « Clôture du lundi » 🗓️</div></div>`;
     return;
   }
@@ -5622,6 +5625,8 @@ function historique(){
   const wins={}; W.forEach(w=>{ if(w.winner) wins[w.winner]=(wins[w.winner]||0)+1; });
   const champ=Object.entries(wins).sort((a,b)=>b[1]-a[1])[0];
   $('#main').innerHTML=`
+  ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+  ${subnavHTML('rh','historique','Historique')}
   <div class="topbar"><div><h2>Historique</h2><div class="sub">${W.length} semaine(s) clôturée(s) · records de l'entreprise</div></div></div>
   <div class="grid g4" style="margin-bottom:18px">
     <div class="panel kpi"><div class="lbl">🏆 Meilleure semaine</div><div class="val">${fmt(best.total)}</div><div class="delta">barils · S${best.num}</div></div>
@@ -5795,6 +5800,8 @@ async function frecues(){
   const L=FR_CACHE||[];
   const ents=[...new Set(L.map(f=>String(f.entreprise||'?').trim()))].sort((a,b)=>a.localeCompare(b));
   $('#main').innerHTML=`
+  ${heroHTML('comptable','Comptabilité','Suivi financier et reporting')}
+  ${subnavHTML('comptable','frecues','Factures reçues')}
   <div class="topbar">
     <div><h2>Factures reçues</h2><div class="sub">Archives Direction · ${L.length} facture(s) · ${ents.length} entreprise(s)</div></div>
     <button class="btn btn-ghost" onclick="FR_CACHE=null;frecues()">🔄 Recharger</button>
@@ -5951,6 +5958,8 @@ function prodder(){
   const rowHT=r=>D.cols.reduce((a,c)=>a+nn(r.q&&r.q[c.n])*nn(c.p),0);
   const tot=D.rows.reduce((a,r)=>a+rowHT(r),0);
   $('#main').innerHTML=`
+  ${heroHTML('commercial','Commercial','Développer nos partenariats')}
+  ${subnavHTML('commercial','prodder','Produits dérivés')}
   <div class="topbar">
     <div><h2>Produits dérivés</h2><div class="sub">${D.cols.length} produit(s) · ${D.rows.length} vente(s) · les colonnes s'ajoutent et se retirent à la volée</div></div>
     <div style="display:flex;gap:10px">
@@ -6135,6 +6144,8 @@ function quotascom(){
     Object.assign(S.quotasCom,{vendus,parPers,ferPers}); save();
   }
   $('#main').innerHTML=`
+  ${heroHTML('commercial','Commercial','Développer nos partenariats')}
+  ${subnavHTML('commercial','quotascom','Quotas & fer')}
   <div class="topbar">
     <div><h2>Quotas &amp; achats de fer</h2><div class="sub">Semaine ${S.settings.semaine} · objectif calculé sur « Ventes de la semaine » (2 fer par bidon) · achats relevés par le bot depuis le salon Discord</div></div>
     <div style="display:flex;gap:10px">
@@ -6381,12 +6392,17 @@ function absDel(id){
 function quotashist(){
   const W=(S.weeks||[]).filter(w=>w.detail&&w.detail.length).slice(-3);
   if(!W.length){
-    $('#main').innerHTML=`<div class="topbar"><div><h2>Quotas — 3 dernières semaines</h2><div class="sub">Consultation seule</div></div></div>
+    $('#main').innerHTML=`
+    ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+    ${subnavHTML('rh','quotashist','Quotas 3 semaines')}
+    <div class="topbar"><div><h2>Quotas — 3 dernières semaines</h2><div class="sub">Consultation seule</div></div></div>
     <div class="panel"><div class="empty">L'historique détaillé se remplira à partir de la prochaine clôture du lundi 🗓️<br>(les clôtures passées n'avaient pas encore ce niveau de détail)</div></div>`;
     return;
   }
   const noms=[...new Set(W.flatMap(w=>w.detail.filter(x=>!x.poste).map(x=>x.nom)))].sort((a,b)=>a.localeCompare(b));
   $('#main').innerHTML=`
+  ${heroHTML('rh','Ressources Humaines','Nos collaborateurs, notre force')}
+  ${subnavHTML('rh','quotashist','Quotas 3 semaines')}
   <div class="topbar"><div><h2>Quotas — 3 dernières semaines</h2><div class="sub">Consultation seule · ✔ quota atteint · ✗ manqué · — pas dans l'effectif cette semaine-là</div></div></div>
   <div class="panel" style="overflow-x:auto">
     <table><thead><tr><th>Runner</th>${W.map(w=>`<th style="text-align:center">S${w.num}<div style="font-weight:400;color:var(--muted);font-size:.7rem">${esc(w.date||'')}</div></th>`).join('')}</tr></thead><tbody>
@@ -6738,6 +6754,10 @@ function profil(){
   $('#main').innerHTML=`
   <div class="topbar">
     <div><h2>Mon profil</h2><div class="sub">👤 <b style="color:var(--ink)">${esc(nom)}</b>${r?` · <span class="badge ${gCls(r)}">${esc(gTitle(r))}</span>`:''}</div></div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-ghost" onclick="show('agenda')">📅 Mon agenda</button>
+      <button class="btn btn-ghost" onclick="show('affiches')">🖼️ Affiches</button>
+    </div>
   </div>
   <div class="profil-grid">
 
@@ -7507,6 +7527,8 @@ async function produits(){
   const manquants=(PROD_ENLIGNE===null)?[]:l.filter(p=>p.actif!==false&&!prodEstEnLigne(p));
   const enTrop=(PROD_ENLIGNE===null)?[]:PROD_ENLIGNE.filter(n=>!l.some(p=>p.actif!==false&&p.nom===n));
   $('#main').innerHTML=`
+  ${heroHTML('commercial','Commercial','Développer nos partenariats')}
+  ${subnavHTML('commercial','produits','Nouveaux produits')}
   <div class="topbar">
     <div><h2>🛢️ Nouveaux produits</h2><div class="sub">Ce que la vitrine annonce — ${l.length} fiche(s) · ${actifs} en ligne</div></div>
     <div style="display:flex;gap:10px;align-items:center">
@@ -8150,7 +8172,13 @@ function enteteRepliable(cle,titre,extra){
 async function params(){
   $('#main').innerHTML = `
   ${heroHTML('params','Paramètres','Configuration et administration')}
-  <div class="topbar"><div><h2>Paramètres</h2><div class="sub">Configuration de l'entreprise et des données</div></div></div>
+  <div class="topbar"><div><h2>Paramètres</h2><div class="sub">Configuration de l'entreprise et des données</div></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-ghost" onclick="show('dlogs')">📡 Logs en direct</button>
+      <button class="btn btn-ghost" onclick="show('journal')">📜 Journal</button>
+      <button class="btn btn-ghost" onclick="show('maj')">🆕 Mises à jour</button>
+    </div>
+  </div>
   <div class="grid g2">
     <div class="panel">
       <h3>💼 Économie</h3>
@@ -8165,15 +8193,6 @@ async function params(){
         <div class="f-row"><label class="f-lbl">📜 Salon Discord des rappels — commercial (identifiant, vide = pas de rappel)</label><input class="field" id="p_salon" value="${esc(salonContrats())}" placeholder="ex. 1246584841785446480"></div>
         <div class="f-row"><label class="f-lbl">📜 Salon Discord des rappels — RH</label><input class="field" id="p_salonRH" value="${esc(salonRappelRH())}" placeholder="ex. 1246584841785446480"></div>
         <div class="f-row"><label class="f-lbl">📜 Salon Discord des rappels — Patron, Co Patron, Assistant de direction</label><input class="field" id="p_salonDir" value="${esc(salonRappelDirection())}" placeholder="ex. 1246584841785446480"></div>
-      </div>
-      <div class="f-row" style="margin-top:16px">
-        <label class="f-lbl">🎉 Habillage saisonnier</label>
-        <select class="field" id="p_theme">
-          <option value="" ${!S.settings.theme?'selected':''}>Aucun</option>
-          <option value="halloween" ${S.settings.theme==='halloween'?'selected':''}>🎃 Halloween</option>
-          <option value="noel" ${S.settings.theme==='noel'?'selected':''}>🎄 Noël</option>
-        </select>
-        <p style="color:var(--muted);font-size:.76rem;margin-top:6px">Couleurs et décorations sur le dashboard et la vitrine — un seul à la fois, activable/désactivable ici à tout moment.</p>
       </div>
       <div style="margin:6px 0 16px;border-top:1px solid var(--line);padding-top:16px">
         <label class="f-lbl">💼 Salaires fixes minimum par poste (direction & co)</label>
@@ -8378,8 +8397,6 @@ function saveParams(){
   S.settings.salonContrats=String($('#p_salon').value||'').replace(/\D/g,'');
   S.settings.salonRappelRH=String(($('#p_salonRH')&&$('#p_salonRH').value)||'').replace(/\D/g,'');
   S.settings.salonRappelDirection=String(($('#p_salonDir')&&$('#p_salonDir').value)||'').replace(/\D/g,'');
-  S.settings.theme=String(($('#p_theme')&&$('#p_theme').value)||'');
-  aplTheme();
   jlog('Modification des paramètres');
   save();
   sbPushNow(); // envoi immédiat vers la base partagée, sans différé
@@ -8450,65 +8467,6 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 /* ================== UI PREMIUM : canvas, ripple, compteurs ================== */
 const MOTION_OK = true; // animations toujours actives (demande du patron 😄)
 
-/* ---- fond animé : particules d'or noir reliées ---- */
-(function(){
-  if(!MOTION_OK) return;
-  const cv=document.createElement('canvas'); cv.id='bgCanvas'; document.body.prepend(cv);
-  const cx=cv.getContext('2d'); let W,H,PS=[];
-  function rs(){
-    W=cv.width=innerWidth; H=cv.height=innerHeight;
-    const N=Math.min(95, Math.floor(innerWidth/16));
-    const COLS=['232,98,44','242,183,5','232,98,44','184,67,30','242,183,5']; // particules : palette orange pétrole
-    if(PS.length!==N) PS=Array.from({length:N},()=>({
-      x:Math.random()*W, y:Math.random()*H,
-      vx:(Math.random()-.5)*.45, vy:(Math.random()-.5)*.45,
-      r:Math.random()*2.2+.8, o:Math.random()*.5+.4,
-      tw:Math.random()*6.28, ts:.008+Math.random()*.02,
-      c:COLS[Math.floor(Math.random()*COLS.length)]
-    }));
-  }
-  addEventListener('resize',rs); rs();
-  const LINK=145, MOUSE=190;
-  const M={x:-9999,y:-9999};
-  addEventListener('pointermove',e=>{M.x=e.clientX;M.y=e.clientY});
-  addEventListener('pointerleave',()=>{M.x=M.y=-9999});
-  (function tick(){
-    requestAnimationFrame(tick);
-    if(document.hidden) return;
-    cx.clearRect(0,0,W,H);
-    for(const p of PS){
-      p.x+=p.vx; p.y+=p.vy; p.tw+=p.ts;
-      if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
-      if(p.y<-10)p.y=H+10; if(p.y>H+10)p.y=-10;
-      const glow=(Math.sin(p.tw)+1)/2;
-      cx.shadowColor=`rgba(${p.c},.9)`; cx.shadowBlur=8+glow*8;
-      cx.beginPath(); cx.arc(p.x,p.y,p.r,0,6.2832);
-      cx.fillStyle=`rgba(${p.c},${(p.o*(.45+.55*glow)).toFixed(3)})`;
-      cx.fill();
-    }
-    cx.shadowBlur=0;
-    for(let i=0;i<PS.length;i++)for(let j=i+1;j<PS.length;j++){
-      const a=PS[i],b=PS[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
-      if(d2<LINK*LINK){
-        cx.strokeStyle=`rgba(${a.c},${((1-Math.sqrt(d2)/LINK)*.13).toFixed(3)})`;
-        cx.lineWidth=1; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke();
-      }
-    }
-    /* halo interactif : les particules proches du curseur se relient à lui */
-    for(const p of PS){
-      const dx=p.x-M.x, dy=p.y-M.y, d2=dx*dx+dy*dy;
-      if(d2<MOUSE*MOUSE){
-        const t=1-Math.sqrt(d2)/MOUSE;
-        cx.strokeStyle=`rgba(242,183,5,${(t*.30).toFixed(3)})`;
-        cx.lineWidth=1.2; cx.beginPath(); cx.moveTo(p.x,p.y); cx.lineTo(M.x,M.y); cx.stroke();
-        p.vx+=dx/18000; p.vy+=dy/18000;
-      }
-      const sp=Math.hypot(p.vx,p.vy);
-      if(sp>.9){p.vx*=.9/sp;p.vy*=.9/sp}
-    }
-  })();
-})();
-
 /* ---- effet ripple sur boutons / onglets / navigation ---- */
 document.addEventListener('pointerdown',e=>{
   const b=e.target.closest('.btn,.tab,.nav-item,.login-card button');
@@ -8545,11 +8503,10 @@ new MutationObserver(()=>animateCounters()).observe(document.getElementById('mai
   const hint=document.getElementById('lg_hint');
   const majHint=()=>{ if(hint) hint.style.display=(S.users&&S.users.length)?'none':'block'; };
   majHint();
-  aplTheme();
   checkRescue();
   checkVersion();
   initSync();
-  sbPull().then(()=>{ majHint(); aplTheme(); checkDiscordAuth(); });
+  sbPull().then(()=>{ majHint(); checkDiscordAuth(); });
 })();
 </script>
 
@@ -8659,31 +8616,7 @@ document.addEventListener('click',e=>{ if(e.target&&e.target.id==='syncDot'){ e.
      Aucune donnée, aucun calcul, aucun appel réseau.            -->
 <script>
 (function(){
-  if(!window.Roxwood) return;
-
-  /* silhouette de raffinerie derrière l'écran de connexion */
-  var cvLogin=document.getElementById('skylineLogin');
-  if(cvLogin) Roxwood.bandeauRaffinerie({canvas:cvLogin,opacite:.95});
-
-  /* et en fond du dashboard, très discrète */
-  Roxwood.bandeauRaffinerie({hauteur:210,opacite:.34});
-
-  /* carte de connexion inclinable */
-  var card=document.querySelector('.login-card');
-  if(card){ card.setAttribute('data-tilt',''); Roxwood.brancherTilt(card); }
-
-  /* les vues sont re-rendues en permanence : on surveille #main */
-  Roxwood.surveiller(document.getElementById('main'),{
-    tilt:'.kpi',                       // petites plaques : elles pivotent
-    lueur:'.panel:not(.kpi), .modal',  // grands panneaux : reflet seul
-    rivets:'.kpi, .panel:not(.kpi)',
-    amplitude:.55
-  });
-
-  /* la modale est hors de #main */
-  new MutationObserver(function(){
-    Roxwood.habiller(document.getElementById('modalBg'),{lueur:'.modal',rivets:'.modal'});
-  }).observe(document.getElementById('modalBg'),{childList:true,subtree:true});
+  // décor (silhouette animée, inclinaison, rivets, reflet) retiré — plus rien ici.
 })();
 </script>
 </body>
