@@ -13832,6 +13832,12 @@
     "quantite": 100,
     "qui": "Laurent Roquel",
     "fact": 253179
+   },
+   {
+    "date": "2026-10-25",
+    "client": "Citoyen ⚡",
+    "quantite": 10,
+    "qui": "Laurent Roquel"
    }
   ],
   "collection": [
@@ -56099,35 +56105,43 @@
   "semaineDebut": "2026-10-19",
   "salonRappelRH": "",
   "salonRappelDirection": "",
-  "theme": "halloween",
-  "_fixRecrutBellini": true
+  "theme": "",
+  "_fixRecrutBellini": true,
+  "fonds": {
+   "accueil": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png",
+   "rh": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png",
+   "commercial": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png",
+   "comptable": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png",
+   "overview": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png",
+   "params": "file:///C:/Users/thoma/Downloads/banniere_oil_roxwood.png"
+  }
  },
- "_cid": "2izsyhpyfi8",
- "_maj": 1792948301252,
- "_rev": "jr61t9k40v-mvo34mrj",
+ "_cid": "n720i99csi",
+ "_maj": 1792955934863,
+ "_rev": "gowoyelhqmj-mvo7pg52",
  "_majSec": {
   "fer": 1792946942172,
   "fact": 1792941392401,
   "users": 1792946648058,
   "weeks": 1792400944983,
-  "sheets": 1792941421983,
+  "sheets": 1792952101840,
   "_qcFix1": 1792090599970,
   "_wkFix1": 1792090599970,
-  "journal": 1792948102458,
+  "journal": 1792952101840,
   "pending": 1792090599970,
   "prodDer": 1792875193989,
   "runners": 1792926589764,
   "absences": 1792771162506,
   "imported": 1792090599970,
-  "settings": 1792948102458,
+  "settings": 1792948454136,
   "closeUndo": 1792400944983,
-  "quotasCom": 1792941424231,
+  "quotasCom": 1792952124402,
   "bilanExtra": 1792882987253,
   "bilanForce": 1792090599970,
   "primesExtra": 1792090599970,
   "quotasComHist": 1792400944983,
   "profils": 1792090599970,
-  "_tables": 1792948301252,
+  "_tables": 1792955934863,
   "_permsFix1": 1792090599970,
   "_rolesFix4": 1788489352546,
   "_rolesFix77": 1792090599970,
@@ -56144,6 +56158,16 @@
  "_qcFix1": true,
  "_wkFix1": true,
  "journal": [
+  {
+   "t": 1792952103273,
+   "u": "Laurent Roquel",
+   "a": "Vente rapide sans facture : 10 bidon(s) — Citoyen (vendeur : Laurent Roquel)"
+  },
+  {
+   "t": 1792948456478,
+   "u": "Diego Herrera",
+   "a": "Modification des paramètres"
+  },
   {
    "t": 1792948102458,
    "u": "Diego Herrera",
@@ -57633,16 +57657,6 @@
    "t": 1791740143917,
    "u": "Julio Collins",
    "a": "Rôle aligné depuis Discord (relevé du bot) : Julio Collins · Commercial → Responsable commercial"
-  },
-  {
-   "t": 1791740143716,
-   "u": "?",
-   "a": "Rôle aligné sur Discord : Julio Collins · Responsable commercial → Commercial"
-  },
-  {
-   "t": 1791727800243,
-   "u": "Diego Herrera",
-   "a": "Absences Discord reprises : Kobayashi Vincent"
   }
  ],
  "prodDer": {
@@ -58066,14 +58080,14 @@
   }
  ],
  "_statsPub": {
-  "maj": "2026-10-25T17:11:45.727Z",
+  "maj": "2026-10-25T19:19:55.382Z",
   "semaine": 43,
   "totalBarils": 185666,
   "ca": 928330,
   "objectif": 375000,
   "effectif": 113,
   "clientsServis": 164,
-  "theme": "halloween",
+  "theme": "",
   "top3": [
    {
     "nom": "Bingo Dallas",
@@ -58180,9 +58194,9 @@
  "quotasCom": {
   "sem": 43,
   "achats": {},
-  "vendus": 4960,
-  "parPers": 992,
-  "ferPers": 1984
+  "vendus": 4970,
+  "parPers": 994,
+  "ferPers": 1988
  },
  "bilanExtra": [
   {
